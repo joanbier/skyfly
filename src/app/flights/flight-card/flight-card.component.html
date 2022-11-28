@@ -1,0 +1,18 @@
+<mat-card class="card-container mx-1 my-4">
+  <button class="icon" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <mat-icon>airplanemode_active</mat-icon>
+  </button>
+  <br>
+  <mat-card-header>
+    <mat-card-title>{{flight.destination}}</mat-card-title>
+    <mat-card-subtitle>From: {{flight.origin}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="text-center">
+    <p><span>{{flight.departureTime}} - {{flight.returnTime}}</span></p>
+  </mat-card-content>
+  <!--  <mat-card-actions class="text-center">-->
+  <!--    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">-->
+  <!--      <mat-icon>airplanemode_active</mat-icon>-->
+  <!--    </button>-->
+  <!--  </mat-card-actions>-->
+</mat-card>

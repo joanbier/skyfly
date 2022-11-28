@@ -1,0 +1,78 @@
+<form [formGroup]="flightForm">
+  <div class="row">
+    <mat-form-field class="col-sm-8" appearance="fill">
+      <mat-label>Code</mat-label>
+      <input formControlName="code" matInput>
+      <mat-error *ngIf="code?.hasError('required')">Field is required</mat-error>
+      <mat-error *ngIf="code?.hasError('minlength')">Min length is 4</mat-error>
+      <mat-error *ngIf="code?.hasError('maxlength')">Max length is 10</mat-error>
+      <mat-error *ngIf="code?.hasError('incorrectCode')">Code must starts with "SKY" prefix</mat-error>
+      <mat-hint align="end">{{code?.value.length}} / 10</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="col-sm-4" appearance="fill">
+      <mat-label>Origin</mat-label>
+      <input formControlName="origin" matInput>
+    </mat-form-field>
+    <mat-form-field class="col-sm-4" appearance="fill">
+      <mat-label>Destination</mat-label>
+      <input formControlName="destination" matInput>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="col-sm-4" appearance="fill">
+      <mat-label>Departure Time</mat-label>
+      <input formControlName="departureTime" matInput>
+    </mat-form-field>
+    <mat-form-field class="col-sm-4" appearance="fill">
+      <mat-label>Return Time</mat-label>
+      <input formControlName="returnTime" matInput>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="col-sm-8" appearance="fill">
+      <mat-label>Additional Information</mat-label>
+      <textarea formControlName="additionalInformation" matInput></textarea>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-checkbox formControlName="withSKPlanesDiscount">With Sky-Fly Discount</mat-checkbox>
+    </div>
+  </div>
+  <div formArrayName="crew" class="container-crew" *ngFor="let crewMember of crew.controls; let i = index; trackBy: trackByFn">
+    <div class="row crew-header">
+      <div class="col">
+        <span>Crew Member - {{i + 1}}</span>
+      </div>
+    </div>
+    <div class="row crew-content" [formGroupName]="i">
+      <div class="col-sm-5">
+        <mat-form-field class="col-sm-8" appearance="standard">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-5">
+        <mat-form-field class="col-sm-8" appearance="standard">
+          <mat-label>Profession</mat-label>
+          <mat-select formControlName="job">
+            <mat-option *ngFor="let prof of professions" [value]="prof.value">{{prof.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-2">
+        <mat-icon (click)="removeCrewMember(i)" class="float-end">delete_forever</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button (click)="addCrewMember()" mat-raised-button color="primary">Add crew member</button>
+    </div>
+  </div>
+</form>
+<pre>{{flightForm.value | json }}</pre>
+<pre>isFormValid: {{flightForm.valid }}</pre>
+

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-9">
+    <h3>Edit flight <span *ngIf="flight"><b>{{flight.code}}</b> details</span></h3>
+  </div>
+  <div class="col-3">
+    <button mat-raised-button color="warn" (click)="removeFlight()">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+  </div>
+</div>
+<app-flight-form #flightForm [editMode]="true"></app-flight-form>
+<div class="row">
+  <div class="col text-right">
+    <button mat-raised-button>RESET</button>
+    <button mat-raised-button color="primary" (click)="saveEditedFlight()">SAVE</button>
+  </div>
+</div>

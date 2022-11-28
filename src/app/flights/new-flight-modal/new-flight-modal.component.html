@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Create new Flight</h2>
+<mat-dialog-content class="mat-typography">
+  <app-flight-form #form></app-flight-form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button (click)="createFlight()" mat-raised-button color="primary" [disabled]="form.flightForm.invalid" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+</mat-dialog-actions>

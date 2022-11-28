@@ -1,0 +1,19 @@
+<div class="row justify-content-center login-container">
+  <div class="col-sm-4 shadow login-content">
+    <img alt="skyfly logo" src="../../../../assets/images/logo.png" class="logo">
+    <h3>Login</h3>
+    <form>
+      <mat-form-field class="d-block">
+        <input [(ngModel)]="credentials.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email" required>
+        <mat-error>Email is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="d-block">
+        <input [(ngModel)]="credentials.password" [ngModelOptions]="{standalone: true}" matInput placeholder="Password" required>
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+      <button type="submit" (click)="login()" mat-raised-button color="primary">LOG IN</button>
+      <p>You don't have an account?</p>
+      <button mat-raised-button color="accent" (click)="register()">REGISTER</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+.container-crew {
+  box-shadow: 1px 1px 6px 0 #ddd;
+  margin: 10px 0;
+  padding: 10px;
+
+  .crew-header {
+    font-weight: bold;
+  }
+
+  .crew-content {
+    align-items: center;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
